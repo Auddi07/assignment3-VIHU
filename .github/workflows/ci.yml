@@ -15,7 +15,7 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: action/checkout@4
+              uses: actions/checkout@4
 
             - name: Setup bun
               uses: oven-sh/setup-bun@v2
@@ -28,3 +28,18 @@ jobs:
 
             - name: Run tests
               run: bun run test 
+    docker:
+        needs: test
+        name: Build docker
+        runs-on: ubuntu-lates
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@4
+
+            - name: Set up Docker Buidx
+              uses: docker/setup-buidx-action@v6
+              with:
+                context: .
+                push: false
+                tags: assignment-3:latest
