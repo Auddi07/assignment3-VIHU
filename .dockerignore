@@ -1,0 +1,11 @@
+# Dependencies
+node_modules
+
+# Version control
+.git
+.gitignore
+
+# Docker files
+Dockerfile
+.dockerignore
+
